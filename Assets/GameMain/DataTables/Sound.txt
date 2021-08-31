@@ -1,0 +1,4 @@
+#	声音配置							
+#	Id		AssetName	Priority	Loop	Volume	SpatialBlend	MaxDistance
+#	int		string	int	bool	float	float	float
+#	编号	备注	资源名称	优先级（-128-128）默认0	是否循环	大小 0-1	空间混合量0为2d，1为3d	最大距离

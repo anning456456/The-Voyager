@@ -1,0 +1,4 @@
+#	声音配置				
+#	Id		AssetName	Priority	Volume
+#	int		string	int	float
+#	编号	备注	资源名称	优先级（-128-128）默认0	大小 0-1

@@ -1,0 +1,7 @@
+#	默认配置			
+#	Id	ConfigName		ConfigValue
+#	int	string		string
+#	编号	配置项	备注	配置值
+	1	Game.Id	游戏名称	Auto Farm
+	2	Scene.Main		1
+	3	Scene.Game		2

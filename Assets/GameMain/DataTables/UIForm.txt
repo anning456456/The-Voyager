@@ -1,0 +1,12 @@
+#	界面配置					
+#	Id		AssetName	UIGroupName	AllowMultiInstance	PauseCoveredUIForm
+#	int		string	string	bool	bool
+#	编号	备注	资源名称	界面组名称	是否允许多个实例	是否暂停被覆盖界面
+	100	登录界面	LogInForm	Default	FALSE	FALSE
+	101	选择页面	SelectForm	Default	FALSE	FALSE
+	102	ICA消息页面	ICAForm	Default	FALSE	FALSE
+	103	Mobius消息页面	MobiusForm	Default	FALSE	FALSE
+	104	导航系统	NavigationForm	Default	FALSE	FALSE
+	105	健康系统	HealthForm	Default	FALSE	FALSE
+	106	任务说明	TaskInfoForm	Default	FALSE	FALSE
+	107	任务日志	TaskListForm	Default	FALSE	FALSE

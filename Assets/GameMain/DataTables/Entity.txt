@@ -1,0 +1,4 @@
+#	实体		
+#	Id		AssetName
+#	int		string
+#	编号	备注	资源名称

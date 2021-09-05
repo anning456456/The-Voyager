@@ -6,6 +6,8 @@ TagManager:
   tags:
   - item
   - checker
+  - Obstacle
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -48,4 +50,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2263782071
+    locked: 0
+  - name: Player
+    uniqueID: 1624776195
     locked: 0

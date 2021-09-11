@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+/*
 public class UIController : MonoBehaviour
 {
     public Transform sideTracks;
@@ -26,3 +26,4 @@ public class UIController : MonoBehaviour
         //trackPos = nextTrack.transform.position;
     }
 }
+*/

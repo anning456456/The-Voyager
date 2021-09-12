@@ -84,7 +84,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!58 &2630002675628505532
 CircleCollider2D:
@@ -96,12 +96,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00881511, y: 0.08}
+  m_Offset: {x: 0.00881511, y: -0.0019049048}
   serializedVersion: 2
-  m_Radius: 0.33099985
+  m_Radius: 0.41290474
 --- !u!114 &398894717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e58c4cabed679d44833b1d677128491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hSpeed: 3
-  vSpeed: 6
+  hSpeed: 2
+  vSpeed: 5
+  hp: 1
+  slider: {fileID: 0}
+  sliderFillArea: {fileID: 0}
+  diePopUp: {fileID: 0}
+  successPopUp: {fileID: 0}
+  mask: {fileID: 0}
+  end: {fileID: 0}
+  delay: 0.3
+  reachEnd: 0
+  countDownIndicator: 30
+  countDown: {fileID: 0}
 --- !u!50 &398894718
 Rigidbody2D:
   serializedVersion: 4
@@ -124,7 +135,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2630002675628505529}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -136,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!95 &398894719
 Animator:
   serializedVersion: 3

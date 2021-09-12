@@ -8,6 +8,7 @@ TagManager:
   - checker
   - Obstacle
   - Wall
+  - End
   layers:
   - Default
   - TransparentFX

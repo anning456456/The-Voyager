@@ -123,7 +123,7 @@ MonoBehaviour:
   successPopUp: {fileID: 0}
   mask: {fileID: 0}
   end: {fileID: 0}
-  delay: 0.3
+  delay: 0
   reachEnd: 0
   countDownIndicator: 30
   countDown: {fileID: 0}

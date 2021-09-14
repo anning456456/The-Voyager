@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
             mask.SetActive(true);
             successPopUp.SetActive(true);
+            gameObject.SetActive(false);
             Time.timeScale = 0;
         }
         if (isDead)

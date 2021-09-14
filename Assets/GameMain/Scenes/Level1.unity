@@ -3801,10 +3801,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1460337059}
     - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
-      propertyPath: delay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 1790575887}
@@ -3824,10 +3820,6 @@ PrefabInstance:
       propertyPath: sliderFillArea
       value: 
       objectReference: {fileID: 976015064}
-    - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
-      propertyPath: countDownIndicator
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2630002675628505529, guid: 8b1834bb6c4879345b1d86ee54e3493c,
         type: 3}
       propertyPath: m_Name

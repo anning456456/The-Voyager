@@ -26,6 +26,7 @@ public class RockLifeSpan : MonoBehaviour
 
     void Die()
     {
+        RockSpawn.instance.Rocks.Remove(gameObject);
         Destroy(gameObject, 0.5f);
     }
 }

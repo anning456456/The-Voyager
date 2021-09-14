@@ -2631,7 +2631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427966898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6862, y: 5.0923, z: 0}
+  m_LocalPosition: {x: -1.6862, y: -4.36, z: 0}
   m_LocalScale: {x: 11.7014065, y: 4.273145, z: 1}
   m_Children: []
   m_Father: {fileID: 2065177212}
@@ -2677,8 +2677,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5daa6a55eadab284c8db7bb032f67194, type: 3}
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: -2031185225
   m_BackSortingLayerID: 0
@@ -2750,8 +2749,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460337059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8161, y: 10.4445, z: 0}
-  m_LocalScale: {x: 4.370781, y: 8.681222, z: 1}
+  m_LocalPosition: {x: -0.6881, y: 31.1871, z: 0}
+  m_LocalScale: {x: 0.5918135, y: 8.765553, z: 1}
   m_Children: []
   m_Father: {fileID: 2065177212}
   m_RootOrder: 2
@@ -2796,8 +2795,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5daa6a55eadab284c8db7bb032f67194, type: 3}
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: -2031185225
   m_BackSortingLayerID: -2031185225
@@ -3589,6 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rock:
   - {fileID: 927749406749162747, guid: c69246f7afa22ad4a912ea9321c90acf, type: 3}
+  Rocks: []
   tempP: 7.5
   speed: 10
   spawnCD: 2.3
@@ -3617,7 +3616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050178182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6862, y: 16.1, z: 0}
+  m_LocalPosition: {x: -1.6862, y: 37.32, z: 0}
   m_LocalScale: {x: 11.7014065, y: 3.2577152, z: 1}
   m_Children: []
   m_Father: {fileID: 2065177212}
@@ -3663,7 +3662,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
+  m_Sprite: {fileID: -4471210036149329052, guid: b4e410fc1d2fae948a0fec523dd2c248,
     type: 3}
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: -2031185225
@@ -3742,7 +3741,7 @@ PrefabInstance:
     - target: {fileID: 927749406749162749, guid: c69246f7afa22ad4a912ea9321c90acf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.765
+      value: 5.365
       objectReference: {fileID: 0}
     - target: {fileID: 927749406749162749, guid: c69246f7afa22ad4a912ea9321c90acf,
         type: 3}
@@ -3802,6 +3801,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1460337059}
     - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
+      propertyPath: delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 1790575887}
@@ -3821,6 +3824,10 @@ PrefabInstance:
       propertyPath: sliderFillArea
       value: 
       objectReference: {fileID: 976015064}
+    - target: {fileID: 398894717, guid: 8b1834bb6c4879345b1d86ee54e3493c, type: 3}
+      propertyPath: countDownIndicator
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2630002675628505529, guid: 8b1834bb6c4879345b1d86ee54e3493c,
         type: 3}
       propertyPath: m_Name

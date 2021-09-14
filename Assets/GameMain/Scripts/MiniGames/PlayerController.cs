@@ -43,6 +43,14 @@ public class PlayerController : MonoBehaviour
     {
         if (reachEnd)
         {
+            if (RockSpawn.instance.Rocks.Count != 0)
+            {
+                foreach(var temp in RockSpawn.instance.Rocks)
+                {
+                    Destroy(temp);
+                }
+            }
+
             mask.SetActive(true);
             successPopUp.SetActive(true);
             Time.timeScale = 0;

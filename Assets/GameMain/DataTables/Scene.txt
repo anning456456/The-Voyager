@@ -3,4 +3,4 @@
 #	int		string	int
 #	编号	备注	场景名	背景音乐id
 	1	主场景	LogIn	1
-	2	游戏场景	NewGame	2
+	2	关卡1小游戏场景	Level1	2

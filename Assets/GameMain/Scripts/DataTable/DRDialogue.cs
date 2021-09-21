@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2021-08-31 06:36:25.807
+// 生成时间：2021-09-21 12:06:47.301
 //------------------------------------------------------------
 
 using GameFramework;
@@ -40,7 +40,7 @@ namespace Voyage
         /// <summary>
         /// 获取对话类型。
         /// </summary>
-        public int Type
+        public int DiaType
         {
             get;
             private set;
@@ -56,6 +56,15 @@ namespace Voyage
         }
 
         /// <summary>
+        /// 获取是否显示职级。
+        /// </summary>
+        public bool IsShowTitle
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// 获取对话内容。
         /// </summary>
         public string DialogueContent
@@ -65,9 +74,36 @@ namespace Voyage
         }
 
         /// <summary>
-        /// 获取对话跳转。
+        /// 获取对话衔接ID。
         /// </summary>
-        public int NextId
+        public int NextID
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取特殊判断。
+        /// </summary>
+        public string SpecialNext
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取自动跳转时间。
+        /// </summary>
+        public int ShowTime
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取认知读数。
+        /// </summary>
+        public int CongnitiveChange
         {
             get;
             private set;
@@ -85,11 +121,14 @@ namespace Voyage
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Type = int.Parse(columnStrings[index++]);
+            DiaType = int.Parse(columnStrings[index++]);
             SpeakerName = columnStrings[index++];
+            IsShowTitle = bool.Parse(columnStrings[index++]);
             DialogueContent = columnStrings[index++];
-            NextId = int.Parse(columnStrings[index++]);
-            index++;
+            NextID = int.Parse(columnStrings[index++]);
+            SpecialNext = columnStrings[index++];
+            ShowTime = int.Parse(columnStrings[index++]);
+            CongnitiveChange = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -102,10 +141,14 @@ namespace Voyage
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Type = binaryReader.Read7BitEncodedInt32();
+                    DiaType = binaryReader.Read7BitEncodedInt32();
                     SpeakerName = binaryReader.ReadString();
+                    IsShowTitle = binaryReader.ReadBoolean();
                     DialogueContent = binaryReader.ReadString();
-                    NextId = binaryReader.Read7BitEncodedInt32();
+                    NextID = binaryReader.Read7BitEncodedInt32();
+                    SpecialNext = binaryReader.ReadString();
+                    ShowTime = binaryReader.Read7BitEncodedInt32();
+                    CongnitiveChange = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

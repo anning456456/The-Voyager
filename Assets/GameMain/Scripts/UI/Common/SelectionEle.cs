@@ -10,40 +10,30 @@ namespace Voyage
 {
     public class SelectionEle : MonoBehaviour
     {
-        public Button selectA_Btn;
-        public Button selectB_Btn;
+        public List<int> selectionList;
 
-        public Text  selectA_Txt;
-        public Text  selectB_Txt;
-
-        public GameObject curForm;
-        public int turnId;
+        public GameObject selectBtnPrefab;
 
 
-        // Start is called before the first frame update
-        void Start()
+        public void Init()
         {
+
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                SelectionBtn selectBtn = Instantiate(selectBtnPrefab, transform).GetComponent<SelectionBtn>();
+                selectBtn.selectContent.text = GameMain.GameDataManager.GetSelectTable(selectionList[i]).SelectText;
+                selectBtn.dialogueId= GameMain.GameDataManager.GetSelectTable(selectionList[i]).DialogueID;
+            }
 
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ProcessSelectionSize()
         {
-
-        }
-
-        public void A_Opera()
-        {
-            Game.UI.OpenUIForm(UIFormId.MobiusForm);
-            //Game.UI.OpenUIForm(UIFormId.ICAForm, turnId);
+            this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (selectBtnPrefab.GetComponent<RectTransform>().rect.height+20)* selectionList.Count+20);
+            this.GetComponent<LayoutElement>().preferredHeight = (selectBtnPrefab.GetComponent<RectTransform>().rect.height + 20) * selectionList.Count + 20;
         }
 
 
-
-        public void B_Opera()
-        {
-            Game.UI.OpenUIForm(UIFormId.MobiusForm);
-        }
 
 
 

@@ -16,7 +16,6 @@ namespace Voyage
         private const int GameSceneId = 2;
 
         private LoadForm loadForm;
-        private GameMode gameMode;
         private int sceneId;
 
         private bool changeToGame;

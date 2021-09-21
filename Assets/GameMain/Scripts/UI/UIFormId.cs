@@ -7,7 +7,7 @@ namespace Voyage
 	public enum UIFormId
 	{
 	    Undefined = 0,
-        LogInForm = 100,
+        LogInForm = 900,
         SelectForm,
         ICAForm,
         MobiusForm,

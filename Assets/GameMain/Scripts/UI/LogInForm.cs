@@ -10,7 +10,8 @@ namespace Voyage
     {
         public void LogIn()
         {
-            Game.UI.OpenUIForm(UIFormId.SelectForm);
+            GameMain.GameManager.LoadScene(1);
+            Game.UI.OpenUIForm(UIFormId.SelectForm, GameMain.GameManager.CurLevelId);
         }
 
     }

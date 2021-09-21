@@ -1,7 +1,0 @@
-#	关卡配置								
-#	Id		StartId	SelectA	NextID_A	CongnitiveChange_A	SelectB	NextID_B	CongnitiveChange_B
-#	int		int	string	int	int	string	int	int
-#	编号	备注	起始对话	选项A的内容			选项B的内容		
-	1		1	我是1号，我也不知道我能不能成功跳转到2号	2	2	我其实是想跳转到3号	3	-1
-	2		5	我其实是2号，我要跳到3号	3	-5	我想跳回1号	1	-2
-	3		6	我是3号，我要跳回1号	1	3	我想跳回3号	2	-4

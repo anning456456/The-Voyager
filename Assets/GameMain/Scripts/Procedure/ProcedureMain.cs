@@ -101,7 +101,6 @@ namespace Voyage
             if (mGoGame)
             {
                 procedureOwner.SetData<VarInt32>(GameConstant.ProcedureNextScene, Game.Config.GetInt("Scene.Game"));
-                procedureOwner.SetData<VarByte>(GameConstant.ProcedureGameMode, (byte)GameMode.Normal); 
                 ChangeState<ProcedureChange>(procedureOwner);
             }
         }

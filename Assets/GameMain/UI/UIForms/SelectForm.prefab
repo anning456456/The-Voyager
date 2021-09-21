@@ -363,6 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eee1fa6b04280a49b2faeab7ea35439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ICABtn: {fileID: 8551838044244345550}
+  MobiusBtn: {fileID: 736988367132369379}
+  TaskBtn: {fileID: 8923133070262665533}
 --- !u!1 &7183206029995919628
 GameObject:
   m_ObjectHideFlags: 0

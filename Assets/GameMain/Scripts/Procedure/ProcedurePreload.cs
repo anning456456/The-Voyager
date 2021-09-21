@@ -34,9 +34,9 @@ namespace Voyage
             "UISound",
             "Entity",
             "Dialogue",
-            "SelectControl"
-
-
+            "Selection",
+            "Level",
+            "Task"
         };
 
         public static readonly string[] MatNames = new string[]
@@ -125,7 +125,7 @@ namespace Voyage
                 }
            
                 InitManager();
-                LoadScene();
+                //LoadScene();
                 mStartLoadScene = true;
                 return;
             }

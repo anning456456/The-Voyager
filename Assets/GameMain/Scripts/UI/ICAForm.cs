@@ -13,66 +13,121 @@ namespace Voyage
         public ScrollRect scrollRect;
         public Transform transPa;
         public GameObject dialoguePrefab;
+        public GameObject lineImgPrefab;
         public GameObject selectionPrefab;
+        public Transform timeBox;
+        public Button CloseBtn;
 
-        int curLevelId;
-        int dialogueId;
 
-        bool isSelectOpen = false;
-    
+
+        List<int> selectionList;
+        List<string> specialDataList;
+
         protected override void OnOpen(object userData)
         {
             base.OnOpen(userData);
-            curLevelId = 1;
-            if (userData != null)
+            if (userData == null)
             {
-                curLevelId = (int)userData;
+                Debug.LogError("未传入当前关卡ID");
             }
-
-            dialogueId = GameMain.GameDataManager.GetSelectTable(curLevelId).StartId;
-            DialogueEle item = Instantiate(dialoguePrefab,transPa).GetComponent<DialogueEle>();
-            item.dialogueTxt.text = GameMain.GameDataManager.GetDialogueTable(dialogueId).DialogueContent;
-            item.nameTxt.text = GameMain.GameDataManager.GetDialogueTable(dialogueId).SpeakerName;
-            item.ProcessDialog();
+            GameMain.GameManager.CurDialogId = GameMain.GameDataManager.GetLevelTable((int)userData).StartId;
+            GameMain.GameManager.CanConsume = true;
+            GameSetting.SaveUser();
+            List<int> timeList = GameMain.GameDataManager.GetLevelData((int)userData);
+            timeBox.GetChild(0).GetComponent<Text>().text = timeList[0].ToString();
+            timeBox.GetChild(1).GetComponent<Text>().text = timeList[1].ToString();
+            timeBox.GetChild(2).GetComponent<Text>().text = timeList[2].ToString();
+            CloseBtn.interactable = false;
+            ShowDiaLogue();
         }
 
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            if(isSelectOpen)
+            scrollRect.verticalNormalizedPosition = 0;
+
+            if (GameMain.GameManager.CanConsume==false)
             {
                 return;
             }
 
-            if(Input.GetMouseButtonDown(0))
-            {
 
-                scrollRect.verticalNormalizedPosition = 0;
-                if (GameMain.GameDataManager.GetDialogueTable(dialogueId).NextId != 0)
-                {
-                    dialogueId = GameMain.GameDataManager.GetDialogueTable(dialogueId).NextId;
-                    DialogueEle item = Instantiate(dialoguePrefab, transPa).GetComponent<DialogueEle>();
-                    item.dialogueTxt.text = GameMain.GameDataManager.GetDialogueTable(dialogueId).DialogueContent;
-                    item.nameTxt.text = GameMain.GameDataManager.GetDialogueTable(dialogueId).SpeakerName;
-                    item.ProcessDialog();
-                    
-                    //transPa.GetComponent<RectTransform>().anchoredPosition = new Vector2(transPa.GetComponent<RectTransform>().anchoredPosition.x, transPa.GetComponent<RectTransform>().anchoredPosition.y +70);
-                }
-                else
-                {
-                    SelectionEle select= Instantiate(selectionPrefab, transPa).GetComponent<SelectionEle>();
-                    select.selectA_Txt.text = GameMain.GameDataManager.GetSelectTable(curLevelId).SelectA;
-                    select.selectB_Txt.text = GameMain.GameDataManager.GetSelectTable(curLevelId).SelectB;
-                    isSelectOpen = true;
-                    //show selection
-                }
+            if (GameMain.GameManager.IsSelectd == true)
+            {
+                ShowDiaLogue();
+                GameMain.GameManager.IsSelectd = false;
             }
 
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                //处理对话后的各项数值
+                switch ((DialogueType)GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).DiaType)
+                {
+                    case DialogueType.ToDialogue:
+                        GameMain.GameManager.CurDialogId = GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).NextID;
+                        ShowDiaLogue();
+                        GameMain.GameManager.CanConsume = true;
+                        break;
+
+                    case DialogueType.ToSelection:
+                        selectionList = GameMain.GameDataManager.GetSelectionData(GameMain.GameManager.CurDialogId);
+                        SelectionEle selectItem = Instantiate(selectionPrefab, transPa).GetComponent<SelectionEle>();
+                        selectItem.selectionList = selectionList;
+                        selectItem.Init();
+                        selectItem.ProcessSelectionSize();
+                        GameMain.GameManager.CanConsume = false;
+                        break;
+                    case DialogueType.ToOtherForm:
+                        specialDataList=  GameMain.GameDataManager.GetSpecialData(GameMain.GameManager.CurDialogId);
+                        int UIformID = int.Parse(specialDataList[0]);
+                        if(int.Parse(specialDataList[1])==1)
+                        {
+                            GameMain.GameManager.CurLevelId= int.Parse(specialDataList[2]);
+                            GameSetting.SaveUser();
+                        }
+                        Game.UI.OpenUIForm(UIformID, int.Parse(specialDataList[2]));
+                        GameMain.GameManager.CanConsume = false;
+                        break;
+                   
+
+                }
+            }
         }
 
-       
+
+
+        private void ShowDiaLogue()
+        {
+            if (GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).SpeakerName != "NaN")
+            {
+                GameObject line = Instantiate(lineImgPrefab, transPa);
+            }
+            DialogueEle item = Instantiate(dialoguePrefab, transPa).GetComponent<DialogueEle>();
+            item.dialogueTxt.text = GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).DialogueContent;
+            if (GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).SpeakerName == "NaN")
+            {
+                item.nameTxt.gameObject.SetActive(false);
+                item.dialogueTxt.GetComponent<RectTransform>().anchoredPosition = new Vector3(item.dialogueTxt.GetComponent<RectTransform>().anchoredPosition.x, 0);
+            }
+            else
+            {
+                item.nameTxt.text = GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).SpeakerName;
+                item.dialogueTxt.GetComponent<RectTransform>().anchoredPosition = new Vector3(item.dialogueTxt.GetComponent<RectTransform>().anchoredPosition.x, -60);
+                if (GameMain.GameDataManager.GetDialogueTable(GameMain.GameManager.CurDialogId).IsShowTitle)
+                {
+                    item.NameTitleImg.gameObject.SetActive(true);
+                }
+                else
+                {
+                    item.NameTitleImg.gameObject.SetActive(false);
+                }
+            }
+            item.ProcessDialogSize();
+        }
+
+
 
         protected override void OnClose(bool isShutdown, object userData)
         {
@@ -82,6 +137,7 @@ namespace Voyage
         public void CloseBtnClick()
         {
             Close();
+            Game.UI.OpenUIForm(UIFormId.SelectForm);
         }
 
     }

@@ -8,12 +8,24 @@ namespace Voyage
 {
 	public static class GameSetting
 	{
-       
-	    public static void Init()
+        private const string UserDataKey = "UserData";
+        public static UserData CurUserData { get; private set; }
+
+        public static void Init()
         {
            
+            CurUserData = Game.Setting.GetObject(UserDataKey, new UserData());
         }
 
-   
-	}
+      
+
+        public static void SaveUser(bool save = false)
+        {
+            Game.Setting.SetObject(UserDataKey, CurUserData);
+            if (save)
+                Game.Setting.Save();
+        }
+
+
+    }
 }

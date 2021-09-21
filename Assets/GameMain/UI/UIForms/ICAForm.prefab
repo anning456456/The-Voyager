@@ -207,9 +207,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 20
-    m_Bottom: 20
+    m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 50
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -549,8 +549,12 @@ MonoBehaviour:
   transPa: {fileID: 2794075080543108220}
   dialoguePrefab: {fileID: 7150512558843574533, guid: cbfd54e18993f3e4fbfb13166d0adda2,
     type: 3}
+  lineImgPrefab: {fileID: 430864684625900888, guid: 0433d9ce2a4f1c64599679cff11bf958,
+    type: 3}
   selectionPrefab: {fileID: 7150512558843574533, guid: f8d2b9b0366e6f94b966b0ca2d26ea7f,
     type: 3}
+  timeBox: {fileID: 3251959521138283469}
+  CloseBtn: {fileID: 5268609024259865769}
 --- !u!1 &6433764237453298215
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +984,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 42.0428, y: -62.55359}
-  m_SizeDelta: {x: -90.6548, y: -200.1487}
+  m_AnchoredPosition: {x: 45, y: -50}
+  m_SizeDelta: {x: -90, y: -100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8763213199231164467
 CanvasRenderer:

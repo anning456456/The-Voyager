@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public Slider slider;
     public GameObject sliderFillArea;
     Animation anim;
-    //Animator anim;
     bool isDead;
     public GameObject diePopUp;
     public GameObject successPopUp;
@@ -35,7 +34,6 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        //anim = GetComponent<Animator>();
         anim = GetComponent<Animation>();
         StartCoroutine("CountDown");
     }
@@ -81,16 +79,6 @@ public class PlayerController : MonoBehaviour
             Invoke("Downwards", delay - 0.2f);
         }
     }
-
-    /*void Update() {
-        Debug.Log("000000000");
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            
-            anim.Play("Hit");
-        }
-    }
-    */
 
     /// <summary>
     /// movement methods
@@ -151,7 +139,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("0000000000000000000");
-            //anim.SetTrigger("isHurt");
             anim.Play("Hit");
             hp -= 0.2f;
             slider.value = hp;

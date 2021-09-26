@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private bool leftLong, rightLong, upLong, downLong;
     public Slider slider;
     public GameObject sliderFillArea;
-    Animator anim;
+    Animation anim;
+    //Animator anim;
     bool isDead;
     public GameObject diePopUp;
     public GameObject successPopUp;
@@ -34,7 +35,8 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animation>();
         StartCoroutine("CountDown");
     }
 
@@ -79,6 +81,16 @@ public class PlayerController : MonoBehaviour
             Invoke("Downwards", delay - 0.2f);
         }
     }
+
+    /*void Update() {
+        Debug.Log("000000000");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            
+            anim.Play("Hit");
+        }
+    }
+    */
 
     /// <summary>
     /// movement methods
@@ -138,7 +150,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            anim.SetTrigger("isHurt");
+            Debug.Log("0000000000000000000");
+            //anim.SetTrigger("isHurt");
+            anim.Play("Hit");
             hp -= 0.2f;
             slider.value = hp;
             if (hp <= 0.02)
@@ -152,6 +166,8 @@ public class PlayerController : MonoBehaviour
             reachEnd = true;
         }
     }
+
+
     IEnumerator CountDown()
     {
         for ( ; countDownIndicator > 0; countDownIndicator--)

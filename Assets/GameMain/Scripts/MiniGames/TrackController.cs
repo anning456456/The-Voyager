@@ -6,22 +6,24 @@ using UnityEngine.Networking.Types;
 
 public class TrackController : MonoBehaviour
 {
-    public int skipd = -100;
-    public float newY = 0;
     public float speed = 10;
+    private RectTransform rectTransform;
+
     //Image image;
     private void Start()
     {
-        //image = GetComponent<Image>();
+        rectTransform = GetComponent<RectTransform>();
+        
     }
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(-Vector3.up * Time.deltaTime * speed);
-        
-        if (transform.position.y < skipd)
+        rectTransform.Translate(Vector3.down * Time.deltaTime * speed);
+
+        //Debug.Log(rectTransform.localPosition);
+        if (rectTransform.localPosition.y < -1150)
         {
-            transform.position = new Vector3(0, newY, 90);
+            rectTransform.anchoredPosition3D = new Vector3(0, 1150, 0);
         }
     }
 }

@@ -21,7 +21,7 @@ public class RockLifeSpan : MonoBehaviour
             Die();
         }
         lifeTime += Time.deltaTime;
-        transform.Translate(-Vector3.up * Time.deltaTime);
+        transform.Translate(Vector3.down * Time.deltaTime * speed);
     }
 
     void Die()

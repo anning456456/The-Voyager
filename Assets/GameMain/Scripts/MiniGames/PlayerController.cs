@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("0000000000000000000");
             anim.Play("Hit");
             hp -= 0.2f;
             slider.value = hp;

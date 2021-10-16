@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RockLifeSpan : MonoBehaviour
 {
-    public float respawnCD, speed;
+    public float RockSum, speed;
     float lifeTime;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class RockLifeSpan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lifeTime > respawnCD)
+        if (lifeTime > RockSum)
         {
             Die();
         }

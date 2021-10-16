@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2874f673e998dc478604754f34528a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnCD: 10
+  RockSum: 24
   speed: 20

@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("关卡持续时间")]
     public int countDownIndicator = 10;
     public UnityEngine.UI.Text countDown;
+
+    public Slider syrl;
+
     private void Awake()
     {
         if (instance == null)
@@ -43,6 +46,11 @@ public class PlayerController : MonoBehaviour
     {
         if (reachEnd)
         {
+            mask.SetActive(true);
+            successPopUp.SetActive(true);
+            gameObject.SetActive(false);
+            Time.timeScale = 0;
+
             if (RockSpawn.instance.Rocks.Count != 0)
             {
                 foreach(var temp in RockSpawn.instance.Rocks)
@@ -51,10 +59,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            mask.SetActive(true);
-            successPopUp.SetActive(true);
-            gameObject.SetActive(false);
-            Time.timeScale = 0;
         }
         if (isDead)
         {
@@ -78,6 +82,13 @@ public class PlayerController : MonoBehaviour
         {
             Invoke("Downwards", delay - 0.2f);
         }
+
+        syrl.value -= 0.001f * Time.deltaTime;
+        if(syrl.value == 0)
+        {
+            isDead = true;
+        }
+        
     }
 
     /// <summary>
